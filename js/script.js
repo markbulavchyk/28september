@@ -13,40 +13,51 @@
 //     }
 // }
 
+// let num = 20;
+
+// function showFirstMessage(text) {
+//     let num = 10;
+// }
+
+// showFirstMessage('Hello');
+
+// console.log(num);
+
+// function calc (a,b) {
+//     return (a + b);
+// }
+
+// console.log(calc(3,3));
 
 
-const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
+// function ret() {
+//     let num = 52;
+//     return num;
+// }
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
+// const anotherNum = ret();
+// console.log(anotherNum);
+
+// const logger = () => {
+//     console.log('logg');
+// };
+
+// logger();
+
+// console.log(typeof logger);
+
+// const calc = (a,b) => a + b;
+
+
+
+// функция пересчета курса 
+
+const usdCurr = 28;
+const eurCurr = 32;
+
+function convert(curr, amount) {
+    console.log(curr * amount);
 }
 
-
-for (let i = 0; i < 2; i++) {
-    const a = prompt('Один из последних просмотренных фильмов?', ''),
-        b = prompt('На сколько оцените его?', '');
-
-    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-        personalMovieDB.movies[a] = b;
-        console.log('done');
-    } else {
-        i--;
-    }
-}
-
-if (personalMovieDB.count < 10) {
-    console.log('Просмотрено довольно мало фильмов');
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-    console.log('Вы классический зритель');
-} else if (personalMovieDB.count >= 30) {
-    console.log('Вы киноман');
-} else {
-    console.log('Произошла ошибка');
-}
-
-console.log(personalMovieDB);
-
+convert(500,usdCurr);
+convert(500,eurCurr);

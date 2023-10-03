@@ -13,77 +13,44 @@
 //     }
 // }
 
+// function getMathResult(base, repeat) {
+//     let str = '';
 
-let numberOfFilms;
-
-function start() {
-    numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
-
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-
-start();
-
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-}
-
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        const a = prompt('Один из последних просмотренных фильмов?', '').trim(),
-              b = prompt('На сколько оцените его?', '');
-
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log('done');
-        } else {
-            i--;
-        }
-    }
-}
-rememberMyFilms();
-
-function detectPersonalLevel() {
-    if (personalMovieDB.count < 10) {
-        console.log('Просмотрено довольно мало фильмов');
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log('Вы классический зритель');
-    } else if (personalMovieDB.count >= 30) {
-        console.log('Вы киноман');
-    } else {
-        console.log('Произошла ошибка');
-    }
-}
-
-detectPersonalLevel();
-
-function showMyDB() {
-    if (personalMovieDB.privat == false) {
-        console.log(personalMovieDB);
-    }
-}
-
-// function show(hidden) {
-//     if (!hidden) {
-//         console.log('база не приватная');
+//     if (typeof repeat != 'number' || repeat <= 0) {
+//         return base;
 //     }
+
+//     for (let i = 1; i <= repeat; i++) {
+//         str += `${base * i}---`;
+//     }
+
+//     return str.slice(0, -3);
 // }
-// show(personalMovieDB.privat)
-// в аргумент передается значение privat = фолсе , если прийвет не равен тру , а по умолчанию он не равен тру то есть равен фолс то выводим msg
+
+// console.log(getMathResult(2,10));
 
 
-function writeYourGenres() {
-    for (let i = 1; i < 4; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`, ``);
+// function calculateVolumeAndArea (n) {
+//     let volume = (n * n * n)
+//     let S = (n * 6) * n;
+
+//     let str = '';
+//     return [S , volume];
+// }
+// console.log(calculateVolumeAndArea(15));
+
+function getCoupeNumber (n) {
+    if (n < 0 || typeof n != 'number' || !Number.isInteger(n)) {
+        return "Ошибка. Проверьте правильность введенного номера места"
+    } else if (n  > 36 || n == 0) {
+        return "Таких мест в вагоне не существует";
     }
+
+    return Math.ceil(n / 4)
 }
 
-writeYourGenres()
-showMyDB();
+console.log(getCoupeNumber(5));
+
+
+
 

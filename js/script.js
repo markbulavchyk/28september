@@ -1,27 +1,36 @@
 'use strict';
 
-function first() {
+// let x = 6, y = 3;
 
-    setTimeout(function () {
-        console.log(1);
-    },500);
+// x = y--;
+
+// console.log(x, y);
+
+const arr = [1, 2, 3, 6, 8];
+arr.sort();
+
+
+function compareNum (a,b){
+    return a - b;
 }
 
-function second () {
-    console.log(2);
-}
-
-first();
-second();
-
-function learnJS (lang,callback) {
-    console.log(`Я учу: ${lang}`);
-    callback();
-}
-
-learnJS('JAVASCRIPT', done)
+const a = arr.concat();
+arr.push(9);
+console.log(a);
 
 
-function done() {
-    console.log('Я прошел данный урок');
-}
+arr.forEach(function (item, i, array) {
+    console.log(`${i}: ${item} внутри массива ${array}`);
+});
+
+
+// for (let value of arr) {
+//     console.log(value);
+// }
+
+const str = prompt(``, ``);
+const products = str.split(',');
+console.log(products);
+
+
+

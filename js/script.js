@@ -1,36 +1,109 @@
 'use strict';
 
-// let x = 6, y = 3;
+let a = 5,
+    b = a;
 
-// x = y--;
+b = b + 5; 
 
-// console.log(x, y);
+// console.log(b);
 
-const arr = [1, 2, 3, 6, 8];
-arr.sort();
+// console.log(a);
+
+const obj = {
+    a: 5,
+    b: 1
+};
 
 
-function compareNum (a,b){
-    return a - b;
+// const copy = obj;
+
+// copy.a = 10;
+
+// console.log(copy);
+
+// console.log(obj);
+
+function copy (mainObj) {
+    let objCopy = {};
+
+    let key;
+
+    for (key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+    return objCopy;
+
 }
 
-const a = arr.concat();
-arr.push(9);
-console.log(a);
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+}
+
+const newNumbers = copy(numbers);
+
+newNumbers.a = 10;
+
+delete newNumbers.c.x;
+
+console.log(numbers);
 
 
-arr.forEach(function (item, i, array) {
-    console.log(`${i}: ${item} внутри массива ${array}`);
-});
-
-
-// for (let value of arr) {
-//     console.log(value);
-// }
-
-const str = prompt(``, ``);
-const products = str.split(',');
-console.log(products);
+const add = {
+    d: 17,
+    e: 20
+}
 
 
 
+const clone = Object.assign({},add);
+
+clone.d = 21;
+
+console.log(clone);
+
+
+const oldArray = ['a', 'b', 'c'];
+
+const newArray = oldArray.slice();
+
+newArray[1] = 'saas';
+console.log(oldArray);
+
+
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook']
+
+console.log(internet);
+
+function log(a,b,c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);    
+}
+
+const num = [2,5,7]
+
+log(...num)
+
+
+const array = ['a', 'b'];
+
+const newArr = [...array];
+
+console.log(newArr);
+
+
+const q = {
+    One: 1,
+    two: 2
+}
+
+const newObj = {...q}
+
+console.log(newObj);

@@ -1,28 +1,29 @@
 'use strict';
 
-const family = ['Peter', 'Ann', 'Alex', 'Linda'];
 
-function showFamily (arr) {
-    let str =  'Семья состоит из: '
-    if (arr === '') {
-        return 'Семья пуста';
+
+let str = 'some';
+
+let strObj = new String();
+
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHello: function () {
+        console.log('hello');
     }
-
-    for (let key of arr) {
-        str += key + ' '
-    }
-
-    return str.trim();
 }
 
-// console.log(showFamily(family));
+// const john = {
+//     health: 100
+// }
+
+// john.__proto__ = soldier;
+
+Object.setPrototypeOf(john, soldier);
+
+const john = Object.create(soldier);
 
 
-const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
-function standardizeStrings (arr) {
-    let str = arr.join('\n');
 
-    return str.toLowerCase();
-}
-
-console.log(standardizeStrings(favoriteCities));

@@ -1,109 +1,49 @@
 'use strict';
 
-let a = 5,
-    b = a;
+function getTimeFromMinutes (n) {
 
-b = b + 5; 
-
-// console.log(b);
-
-// console.log(a);
-
-const obj = {
-    a: 5,
-    b: 1
-};
-
-
-// const copy = obj;
-
-// copy.a = 10;
-
-// console.log(copy);
-
-// console.log(obj);
-
-function copy (mainObj) {
-    let objCopy = {};
-
-    let key;
-
-    for (key in mainObj) {
-        objCopy[key] = mainObj[key];
+    if (typeof (n) !== 'number' || n < 0 || !Number.isInteger(n) || n > 600 ) {
+        return "Ошибка, проверьте данные";
     }
-    return objCopy;
 
-}
+    let hours = Math.floor(n / 60);
 
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
+    let minutes = n % 60;
+
+    let letterVarialle;
+
+    
+
+    if (hours === 1) {
+        letterVarialle = 'час'
+    } else if (hours > 1 && hours < 5) {
+        letterVarialle = 'часа'
+    } else {
+        letterVarialle = 'часов'
     }
-}
 
-const newNumbers = copy(numbers);
+    const str = `Это ${hours} ${letterVarialle} и ${minutes} минут`
 
-newNumbers.a = 10;
-
-delete newNumbers.c.x;
-
-console.log(numbers);
-
-
-const add = {
-    d: 17,
-    e: 20
+    return str;
 }
 
 
-
-const clone = Object.assign({},add);
-
-clone.d = 21;
-
-console.log(clone);
+// console.log(getTimeFromMinutes(0));
 
 
-const oldArray = ['a', 'b', 'c'];
-
-const newArray = oldArray.slice();
-
-newArray[1] = 'saas';
-console.log(oldArray);
 
 
-const video = ['youtube', 'vimeo', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook']
+function findMaxNumber (a,b,c,d) {
 
-console.log(internet);
+    if (typeof(a) !== 'number' ||
+    typeof(b) !== 'number' ||
+    typeof(c) !== 'number' ||
+    typeof(d) !== 'number') {
+        return 0;
+    } 
 
-function log(a,b,c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);    
+    return Math.max(a,b,c,d)
 }
 
-const num = [2,5,7]
+console.log(findMaxNumber(9,2,3,4));
 
-log(...num)
-
-
-const array = ['a', 'b'];
-
-const newArr = [...array];
-
-console.log(newArr);
-
-
-const q = {
-    One: 1,
-    two: 2
-}
-
-const newObj = {...q}
-
-console.log(newObj);

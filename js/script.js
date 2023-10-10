@@ -1,49 +1,47 @@
 'use strict';
 
-function getTimeFromMinutes (n) {
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function (obj) {
+        let str = `Мне ${obj.age} и я владею языками: `
 
-    if (typeof (n) !== 'number' || n < 0 || !Number.isInteger(n) || n > 600 ) {
-        return "Ошибка, проверьте данные";
+        for (let key of obj.skills.languages) {
+            str += `${key} `.toUpperCase();
+        }
+
+        return str.trim(); // метод трим убрал пробелы вконце
     }
+}
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
-    let hours = Math.floor(n / 60);
+function showExperience (obj) {
+    const {exp} = obj.skills
 
-    let minutes = n % 60;
+    return exp;
+}
 
-    let letterVarialle;
+// console.log(showExperience(personalPlanPeter));
 
+function showProgrammingLangs (obj) {
     
+    let str = '';
 
-    if (hours === 1) {
-        letterVarialle = 'час'
-    } else if (hours > 1 && hours < 5) {
-        letterVarialle = 'часа'
-    } else {
-        letterVarialle = 'часов'
+    for (let key in obj.skills.programmingLangs) {
+        str += `Язык ${key} изучен на ${obj.skills.programmingLangs[key]}\n`
     }
 
-    const str = `Это ${hours} ${letterVarialle} и ${minutes} минут`
-
-    return str;
+    return str
 }
 
+// console.log(showProgrammingLangs(personalPlanPeter));
 
-// console.log(getTimeFromMinutes(0));
-
-
-
-
-function findMaxNumber (a,b,c,d) {
-
-    if (typeof(a) !== 'number' ||
-    typeof(b) !== 'number' ||
-    typeof(c) !== 'number' ||
-    typeof(d) !== 'number') {
-        return 0;
-    } 
-
-    return Math.max(a,b,c,d)
-}
-
-console.log(findMaxNumber(9,2,3,4));
 

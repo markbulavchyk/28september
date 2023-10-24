@@ -1,60 +1,42 @@
 'use strict';
 
-// to string 
+// let number = 5; debugger
 
-// 1)
+// function logNumber() {
+//     console.log(number); debugger
+// }
 
-console.log(typeof (String(null)));
-console.log(typeof (String(4)));
+// number = 6;
 
-// 2)
+// logNumber(); debugger
 
-// Конкатинация
-// сложение строки с чем -то
 
-console.log(typeof (5 + ''));
-const num = 5;
+// number = 8;
 
-console.log('http://vk.com/catalog/' + num);
-
-const fontSize = 26 + 'px';
-
-// to Number 
-
-console.log(typeof (Number('string')));
-
-// 2 
-
-// унарный плюс
-
-console.log(typeof (+'5'));
-
-// 3)
-console.log(typeof (parseInt('15px', 10)));
-
-let answ = +prompt('hello', '');
-
-//to Boolean
-// 1)
-
-0,'',null,undefined,NaN;
-
-let switcher = null;
+// logNumber(); debugger
 
 
 
-switcher = 1;
+function createCounter() {
+    let counter = 0;
 
-if (switcher) {
-    console.log('Working...');
+    const myFunction = function () {
+        debugger
+        counter = counter + 1; debugger
+        return counter; debugger
+    }
+
+    return myFunction;
 }
+debugger
+const increment = createCounter(); debugger
+
+const c1 = increment(); debugger
+const c2 = increment(); debugger
+const c3 = increment(); debugger
+
+console.log(c1, c2, c3);
 
 
 
-// 2
 
-console.log(typeof (Boolean(null)));
-
-// 3)
-
-console.log(typeof (!!''));
